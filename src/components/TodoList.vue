@@ -5,7 +5,7 @@ import { ref } from "vue";
 const todoName = ref("")
 const todoPrio = ref(null)
 const todos = ref([
-  { title: "köp en mjölk", prio: 2, complete: false }
+  { title: "buy milk", prio: 2, complete: false }
   
   
 ])
@@ -48,23 +48,23 @@ function todoAdd() {
 </script>
 
 <template>
-  <h1>Hansa</h1>
+  <h1>Todo List</h1>
   
 
   <div>
     <input v-model="todoName" placeholder="Todo" />
     <input v-model="todoPrio" maxlength="4" pattern="\d{4}" type="number"  required placeholder="prio" />
-    <button @click="todoAdd">Göre</button>
+    <button @click="todoAdd">Add</button>
     
   </div>
-  <button @click="removeAllTodos">Ta bort alla</button>
+  <button @click="removeAllTodos">remove all</button>
 
   <ul >
     <li class="lista" v-for="(todo, index) in todos" :key="index">
       <span :class="{completed: todo.complete}">
       {{ todo.title }} - prio: {{ todo.prio }}</span>
      
-      <button @click="markAsDone(index)">Klar</button>
+      <button @click="markAsDone(index)">Done</button>
 
       <button @click="removeTodo(todo)">Delete</button>
     </li>
